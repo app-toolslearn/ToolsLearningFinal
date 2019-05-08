@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
- <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+
       
     <style type="text/css">
     #alert {
@@ -49,8 +43,8 @@
     .card {
         padding-top: 10px;
         background:#f7f7f7;
-        height: 40%;
-        width: 40%;
+        height: 50%;
+        width: 55%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         margin: auto auto;
@@ -75,85 +69,72 @@
         font-size: 20px;
         text-align: center;
         margin-bottom:5px;
-
     }
     </style>
 </head>
+
 <body>
     <div>
-
-
-        <?php session_start(); 
-        
-                //login name = admin password = 1234;
-                
-        if ( isset($_POST['loginButton'] ) && ($_POST['uname'] == "admin") && ($_POST['pw'] == "1234") ) 
-        { 
-                $_SESSION['sid'] = session_id();  
-                header( 'Location: header.php' );
-        }
-
-        if ( isset($_POST['registerButton'] ) ) 
-        { 
-            //$_SESSION['sid'] = session_id();  
-            header( 'Location: register.php' );
-        }
-            if ( isset($_POST['loginButton'] ) && ($_POST['uname'] != "admin" || $_POST['pw'] != "1234") )
-
-        { ?>
-
-        <div id="alert">
-            <div class='alert alert-danger'>
-                ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง
-            </div>
-        </div>
-        
-        <?php } ?>
             <div id="block">
                 <img class="pic" src="pics/icon-tools.png" />
             </div>
         <div class="card">
             <div id="text">
-                เข้าสู่ระบบ
+                สมัครสมาชิก
             </div>
-
             <div id="form">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="form-group">
-
                         <label class="control-label col-sm-3">อีเมล์</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="uname" >
-
+                            <input type="text" class="form-control" name="email" placeholder="sample@email.com">
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="control-label col-sm-3">รหัสผ่าน</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" name="pw" >
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-2">
-                            <button type="submit" name="loginButton">
-                                เข้าสู่ระบบ</button>
-                        </div>
-                        <div class="col-sm-offset-2 col-sm-2">
-                            <button type="submit" name="registerButton">
-                                สมัครสมาชิกได้ที่นี่</button>
+                        <div class="col-sm-offset-4 col-sm-2"><a href="home.php">
+                            <button type="submit" name="send">
+                                สมัครสมาชิก</button>
                         </div>
                     </div>
                 </form>
-
             </div>
-
-
         </div>
     </div>
     </div>
-
-
 </body>
 
+<?php
+
+if(!isset($_POST['send']))
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "app_toolslearning";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO admin (admin_email, admin_password)
+VALUES ( 'john@example.com','0618842739')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
 </html>
+

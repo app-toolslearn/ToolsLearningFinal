@@ -9,17 +9,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <style type="text/css">
-  @import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
-    
+    @font-face {
+        font-family: 'mitr-regular-webfont';
+        src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    }
 
     body {
-       
+        font-family: 'mitr-regular-webfont' !important;
         /* background: url(img/bg.png); */
         background: #fefefe;
         background-size: cover;
-        font-family: 'PT Sans', sans-serif;
-        font-family: 'Kanit', sans-serif;
     }
 
     nav li {
@@ -89,6 +93,7 @@
         /* margin-bottom: 0px; */
     }
     </style>
+
 </head>
 
 <body>
@@ -98,19 +103,13 @@
         <div class="text">บทเรียน</div>
     </div>
     <div class="upload">
-        <form action="myform.cgi">
-            <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
-            <input type="submit" value="submit">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+           Select image to upload:
+            <input type="file" name="file" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
         </form>
     </div>
-    <div class="upload">
-        <form action="myform.cgi">
-            <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
-            <input type="submit" value="submit">
-        </form>
-    </div>
+   
 </div>
 <div class="cardout">
     <div class="card">
