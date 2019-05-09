@@ -139,10 +139,12 @@
                             <button type="submit" name="loginButton">
                                 เข้าสู่ระบบ</button>
                         </div>
-                        <div class="col-sm-offset-2 col-sm-2">
-                            <button type="submit" name="registerButton">
-                                สมัครสมาชิกได้ที่นี่</button>
+                        &nbsp;
+                       <div class="col-sm-offset-2 col-sm-2" >
+                                <a href="register.php">สมัครสมาชิกได้ที่นี้</a>
                         </div>
+                      
+                        
                     </div>
                 </form>
 

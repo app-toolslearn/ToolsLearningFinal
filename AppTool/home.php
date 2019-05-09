@@ -65,8 +65,6 @@
     </div>
     <h2>Application for self study in computer programming subject </h2>
     <h3>แอปพลิเคชันเพื่อการเรียนรู้และเครื่องมือช่วยสอนสำหรับโปรแกรมมิ่ง </h3>
-
-
 </body>
 
 </html>
