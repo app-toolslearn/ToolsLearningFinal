@@ -12,11 +12,13 @@
     <style type="text/css">
   @import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
 
-    body {
+  body {
+        /* font-family: 'mitr-regular-webfont' !important; */
+        background: url(img/bg.png);
+        background-size: cover;
         font-family: 'PT Sans', sans-serif;
         font-family: 'Kanit', sans-serif;
     }
-
     nav li {
         display: inline-block;
         margin-left: 10px;

@@ -71,10 +71,25 @@
         margin-bottom:5px;
 
     }
+    .a{
+        text-align: center;
+        margin-top: 0%;
+    }
     </style>
 </head>
 <body>
+<?php session_start(); 
+        
+    if ( isset($_POST['send'] )  )
 
+{ ?>
+
+<div id="alert">
+    <div class='alert alert-danger'>
+        ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง
+    </div>
+</div>
+<?php } ?>
     <div>
   
     
@@ -87,7 +102,7 @@
             </div>
 
             <div id="form">
-                <form class="form-horizontal" method="post" action="ac_register.php">
+                <form class="form-horizontal" method="post" action="check_register.php">
                 
                     <div class="form-group">
                         <label class="control-label col-sm-3">อีเมล์</label>
@@ -102,11 +117,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-2"><a href="home.php">
+                        <div class="col-sm-offset-4 col-sm-2">
                             <button type="submit" name="send">
                                 สมัครสมาชิก</button>
                         </div>
                     </div>
+                    <div class="a">
+                                <a href="login.php">กลับไปหน้าเข้าสู่ระบบ</a>
+                        </div>   
                 </form>
             </div>
         </div>
