@@ -1,32 +1,46 @@
 <?php
-	session_start();
-    include "connectdb.php";
-    $email = mysql_escape_string($email);
-    $password = mysql_escape_string($password);
-	$strSQL = "SELECT * FROM admin WHERE admin_email = '".mysql_real_escape_string($_POST['email'])."' 
-	and admin_password = '".mysql_real_escape_string($_POST['password'])."'";
-	$objQuery = mysql_query($strSQL);
-	$objResult = mysql_fetch_array($objQuery);
-	if(!$objResult)
-	{
-			echo "Email and Password Incorrect!";
-	}
-	else
-	{
-			$_SESSION["admin_id"] = $objResult["admin_id"];
-			$_SESSION["admin_email"] = $objResult["admin_email"];
-            $_SESSION["admin_password"] = $objResult["admin_password"];
-
-			session_write_close();
-			
-			if($objResult["admin_id"] == $_SESSION["admin_id"])
-			{
-				header("location:home.php");
-			}
-			else
-			{
-				header("location:login.php");
-			}
-	}
-	mysql_close();
+session_start();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check login</title>
+</head>
+<body>
+	<?php
+	    error_reporting(~E_NOTICE);
+		$email = $_POST['email'];
+		//$password = $_POST['password'];
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "app_toolslearning";
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		mysqli_set_charset($conn,'utf8');
+		// Check connection
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		$sql = "SELECT admin_email FROM admin WHERE admin_email = '$email' ;";
+		//$sql = "SELECT * FROM admin WHERE admin_email ='$email' AND admin_password = '$password'";
+		$p=mysqli_query($conn,$sql);
+		$num = mysqli_num_rows($p);
+		if($num <=0) {
+			echo "ไม่พบชื่อผู้ใช้นี้ในฐานข้อมูล";
+			echo "<meta http-equiv='refresh' content='2;URL=login.php' />";
+		}    
+		else {
+			$row=mysqli_fetch_array($p);
+			$_SESSION['ses_userid'] = session_id();
+			$_SESSION['ses_email'] = $email;
+			$_SESSION['ses_status']=0;
+			$_SESSION['ses_id']=$row['admin_email'];
+			echo "<meta http-equiv='refresh' content='0;URL=check_login2.php' />";
+		}
+	?>
+
+</body>
+</html>
+
+
+	

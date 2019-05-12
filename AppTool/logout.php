@@ -4,7 +4,6 @@
 <head>
     <title>Toolslearning</title>
 
-   
     <style type="text/css">
     #img_container img {
     height: 20%;
@@ -31,9 +30,16 @@
 <div id="img_container">
 <img src="pics/exit.png" />
 <div class="text">
+
+
+
+
 <?php
-session_start();
-session_destroy();
-echo '<a href="../AppTool/login.php">กลับเข้าสู่ระบบ</a>';
-// </div>
-// </body>
+	session_start();
+	unset ( $_SESSION['ses_userid'] );
+	unset ( $_SESSION['ses_username'] );
+	$_SESSION['ses_status']=0;
+    $_SESSION['ses_id']=0;
+    echo '<a href="../AppTool/login.php">กลับเข้าสู่ระบบ</a>';
+	
+?>

@@ -74,54 +74,38 @@
     </style>
 </head>
 <body>
-    <div>
-
-
-        <?php session_start(); 
-        
-                //login name = admin password = 1234;
-                
-        if ( isset($_POST['loginButton'] ) && ($_POST['uname'] == "admin") && ($_POST['pw'] == "1234") ) 
-        { 
-                $_SESSION['sid'] = session_id();  
-                header( 'Location: header.php' );
-        }
-
-        if ( isset($_POST['registerButton'] ) ) 
-        { 
-            //$_SESSION['sid'] = session_id();  
-            header( 'Location: register.php' );
-        }
-            if ( isset($_POST['loginButton'] ) && ($_POST['uname'] != "admin" || $_POST['pw'] != "1234") )
-
-        { ?>
-
-        <div id="alert">
-            <div class='alert alert-danger'>
-                ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง
-            </div>
-        </div>
-        <?php } ?>
-            <div id="block">
+<div id="block">
                 <img class="pic" src="pics/icon-tools.png" />
             </div>
         <div class="card">
             <div id="text">
-                เข้าสู่ระบบ
+            เข้าสู่ระบบ
             </div>
-            <div id="form">
-                <form class="form-horizontal" method="post">
+	<?php
+    session_start();
+    unset ($_SESSION['ses_cyc'] );
+	?>
+		
+		
+        <?php 
+            //error_reporting(~E_NOTICE);
+            if(isset($_SESSION["ses_status"])){
+            if(($_SESSION['ses_status']==0))
+            {
+				?>
+				<div id="form">
+                <form class="form-horizontal" action="check_login.php" method="post">
                     <div class="form-group">
                         <label class="control-label col-sm-3">อีเมล์</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="uname" >
+                            <input type="email" class="form-control" name="email" >
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-3">รหัสผ่าน</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" name="pw" >
+                            <input type="password" class="form-control" name="password" >
                         </div>
                     </div>
                     
@@ -137,9 +121,35 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-    </div>
-</body>
+                
+		<?php
+            }
+        }
+			else{
+				?>
+				<?php
+                    error_reporting(~E_NOTICE);
+					$ses_email = $_SESSION['ses_email'];
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$dbname = "app_toolslearning";
+					$conn = mysqli_connect($servername, $username, $password, $dbname);
+					mysqli_set_charset($conn,'utf8');
+					// Check connection
+					if (!$conn) {
+						die("Connection failed: " . mysqli_connect_error());
+					}
+					$sql = "SELECT * FROM admin WHERE admin_email ='$ses_email' ";
+					$p=mysqli_query($conn,$sql);
+					$data = mysqli_fetch_array($p);
+				?>
+				
 
+				<?php
+				mysqli_close($conn);
+		 	}
+	        	?>
+	
+</body>
 </html>
