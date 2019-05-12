@@ -98,7 +98,7 @@ else
        ?>
           <div id="alert">
             <div class='alert alert-danger'>
-            ไม่สามารถสมัครได้ อีเมลล์ของคุณซ้ำ
+            ไม่สามารถสมัครได้ 
             </div>
         </div>
        <?php

@@ -81,7 +81,7 @@
 <?php session_start(); 
         
     if ( isset($_POST['send'] )  )
-
+    echo "<script>alert('กรอก email เเละ รหัสผ่าน ');</script>";
 { ?>
 
 <div id="alert">
@@ -107,7 +107,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">อีเมล์</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="email" placeholder="sample@email.com">
+                            <input type="email" class="form-control" name="email" placeholder="sample@email.com">
                         </div>
                     </div>
                     <div class="form-group">

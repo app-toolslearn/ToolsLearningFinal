@@ -8,9 +8,9 @@ session_start();
 </head>
 <body>
 	<?php
-	    error_reporting(~E_NOTICE);
+	   error_reporting(~E_NOTICE);
 		$email = $_POST['email'];
-		//$password = $_POST['password'];
+		$password = $_POST['password'];
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -21,8 +21,9 @@ session_start();
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error());
 		}
-		$sql = "SELECT admin_email FROM admin WHERE admin_email = '$email' ;";
-		//$sql = "SELECT * FROM admin WHERE admin_email ='$email' AND admin_password = '$password'";
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$sql = "SELECT * FROM admin WHERE admin_email ='$email' AND admin_password = '$password'";
 		$p=mysqli_query($conn,$sql);
 		$num = mysqli_num_rows($p);
 		if($num <=0) {
@@ -32,9 +33,9 @@ session_start();
 		else {
 			$row=mysqli_fetch_array($p);
 			$_SESSION['ses_userid'] = session_id();
-			$_SESSION['ses_email'] = $email;
+			$_SESSION['ses_Tel'] = $Tel;
 			$_SESSION['ses_status']=0;
-			$_SESSION['ses_id']=$row['admin_email'];
+			$_SESSION['ses_adminid']=$row['admin_password'];
 			echo "<meta http-equiv='refresh' content='0;URL=check_login2.php' />";
 		}
 	?>

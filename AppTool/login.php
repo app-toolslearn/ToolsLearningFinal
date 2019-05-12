@@ -89,7 +89,7 @@
 		
         <?php 
             //error_reporting(~E_NOTICE);
-            if(isset($_SESSION["ses_status"])){
+           
             if(($_SESSION['ses_status']==0))
             {
 				?>
@@ -123,7 +123,7 @@
             </div>
                 
 		<?php
-            }
+            
         }
 			else{
 				?>
@@ -140,7 +140,7 @@
 					if (!$conn) {
 						die("Connection failed: " . mysqli_connect_error());
 					}
-					$sql = "SELECT * FROM admin WHERE admin_email ='$ses_email' ";
+					$sql = "SELECT * FROM admin WHERE admin_email ='$ses_email' admin_password = '$password' ";
 					$p=mysqli_query($conn,$sql);
 					$data = mysqli_fetch_array($p);
 				?>
