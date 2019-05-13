@@ -27,7 +27,7 @@ session_start();
 		$p=mysqli_query($conn,$sql);
 		$num = mysqli_num_rows($p);
 		if($num <=0) {
-			echo "ไม่พบชื่อผู้ใช้นี้ในฐานข้อมูล";
+			echo "<script>alert('ไม่พบผู้ใช้งานนี้');</script>";
 			echo "<meta http-equiv='refresh' content='2;URL=login.php' />";
 		}    
 		else {

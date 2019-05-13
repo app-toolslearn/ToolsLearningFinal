@@ -70,13 +70,13 @@
                 <li><img src="pics/icon-tools.png" /></li>
                 <li><a class="navbar-brand" href="#">ToolsLearning</a></li>
                 <li ><a href="header.php?page=home">หน้าหลัก </a> </li>
-                <li><a href="header.php?page=course">จัดการเนื้อหา</a></li>
+                <li><a href="header.php?page=course">จัดการบทเรียน</a></li>
                 <li><a href="header.php?page=test">จัดการข้อสอบ</a></li>
                 <li><a href="header.php?page=ask-question">ถาม-ตอบ</a></li>
             </ul>
             <div class="logout">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="header.php?page=logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li><a href="header.php?page=logout"><span class="glyphicon glyphicon-log-in"></span> ออกจากระบบ</a></li>
                 </ul>
             </div>
         </div>
