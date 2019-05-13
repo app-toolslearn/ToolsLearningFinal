@@ -39,12 +39,13 @@ if(isset($_POST['submit'])){
    } else {
     echo "You cannot uploadfile this type!!";
    }
-   
-   $sql = "INSERT INTO 'course' ('course_name')  VALUES ('$fileName')";
-   $qry = mysqli_query($conn,  $sql);
+   $sql = "INSERT INTO course( course_name, course_description ) VALUES ('$fileName','$fileSize';";
+   $qry = mysqli_query($conn, $sql);
    if( $qry) {
    echo "image uploaded";
    }
+
+   
 }
 
 

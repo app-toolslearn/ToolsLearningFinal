@@ -88,8 +88,8 @@ else
       mysqli_set_charset($link,'utf8');
       $sql = "app_toolslearning";
   
-    $sql = "SELECT admin_email FROM admin WHERE admin_email = '$email';";
-    $result = mysqli_query($link, $sql);
+       $sql = "SELECT admin_email FROM admin WHERE admin_email = '$email';";
+       $result = mysqli_query($link, $sql);
        $num = mysqli_num_rows($result);
        
        if($num > 0)
@@ -98,7 +98,7 @@ else
        ?>
           <div id="alert">
             <div class='alert alert-danger'>
-            ไม่สามารถสมัครได้ 
+            ไม่สามารถสมัครได้ อาจเกิดการซ้ำของข้อมูล
             </div>
         </div>
        <?php

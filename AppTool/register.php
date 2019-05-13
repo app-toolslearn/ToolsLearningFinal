@@ -84,12 +84,10 @@
     echo "<script>alert('กรอก email เเละ รหัสผ่าน ');</script>";
 { ?>
 
-<div id="alert">
-    <div class='alert alert-danger'>
-        ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง
-    </div>
-</div>
+
+
 <?php } ?>
+
     <div>
   
     
