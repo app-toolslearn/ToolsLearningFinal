@@ -19,10 +19,10 @@ if(isset($_POST['submit']))
     if($fileError === 0){
         if($fileSize < 10000000){
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination = 'uploadcourse/'.$fileNameNew;
+            $fileDestination = 'uploadtest/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
             echo "success";
-            header("Location:header.php?page=course");
+            header("Location:header.php?page=test");
           
         }else {
             echo "Your file is too big!";
@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
       echo "เชื่อมเเล้ว";
      }
 
-       $sql = "INSERT INTO course(course_name)  VALUES ('$fileName')";
+       $sql = "INSERT INTO test(test_name)  VALUES ('$fileName')";
        if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
         } else{

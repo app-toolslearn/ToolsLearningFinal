@@ -93,24 +93,10 @@
         <div class="text">ข้อสอบ</div>
     </div>
     <div class="upload">
-        <form action="myform.cgi">
-            <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
-            <input type="submit" value="submit">
-        </form>
-    </div>
-    <div class="upload">
-        <form action="myform.cgi">
-            <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
-            <input type="submit" value="submit">
-        </form>
-    </div>
-    <div class="upload">
-        <form action="myform.cgi">
-            <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
-            <input type="submit" value="submit">
+    <form action="upload_test.php" method="post" enctype="multipart/form-data">
+           Select image to upload:
+            <input type="file" name="file" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
         </form>
     </div>
 </div>
