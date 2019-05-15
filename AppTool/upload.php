@@ -4,7 +4,7 @@ if(isset($_POST['submit']))
 {
    $file = $_FILES['file'];
    //print_r($file);
-   
+   $les_id = $_POST['les_id'];
    $fileName = $_FILES['file']['name'];
    $fileTmpName = $_FILES['file']['tmp_name'];
    $fileSize = $_FILES['file']['size'];
@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
             $fileDestination = 'uploadcourse/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
             echo "success";
-            header("Location:header.php?page=course");
+            header("Location:index_lesson.php");
           
         }else {
             echo "Your file is too big!";
@@ -38,11 +38,11 @@ if(isset($_POST['submit']))
       echo "เชื่อมเเล้ว";
      }
 
-       $sql = "INSERT INTO course(course_name)  VALUES ('$fileNameNew')";
+       $sql = "INSERT INTO imglesson(les_id,name)  VALUES ('$les_id','$fileNameNew')";
        if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
         } else{
-         echo "Error: " . $sql . "<br>" . $conn->error;
+           echo "Error: " . $sql . "<br>" . $conn->error;
           }
 
 $conn->close();

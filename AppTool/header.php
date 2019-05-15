@@ -70,7 +70,7 @@
                 <li><img src="pics/icon-tools.png" /></li>
                 <li><a class="navbar-brand" href="#">ToolsLearning</a></li>
                 <li ><a href="header.php?page=home">หน้าหลัก </a> </li>
-                <li><a href="header.php?page=course">จัดการบทเรียน</a></li>
+                <li><a href="course">จัดการบทเรียน</a></li>
                 <li><a href="header.php?page=test">จัดการข้อสอบ</a></li>
                 <li><a href="header.php?page=ask-question">ถาม-ตอบ</a></li>
             </ul>

@@ -25,13 +25,13 @@ if(isset($_POST['submit']))
             header("Location:header.php?page=test");
           
         }else {
-            echo "Your file is too big!";
+            echo "ไฟล์ของคุณใหญ่เกินไป!";
         }
     }else {
-        echo "Ther was an error uploading your file!";
+        echo "เกิดปัญหาในการอัพโหลดไฟล์!";
     }
    } else {
-    echo "You cannot uploadfile this type!!";
+    echo "คุณไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้!!";
    }
    $conn = new mysqli("localhost", "root", "", "app_toolslearning");
    if($conn) {
@@ -40,7 +40,7 @@ if(isset($_POST['submit']))
 
        $sql = "INSERT INTO test(test_name)  VALUES ('$fileName')";
        if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "เพิ่มข้อมูลเสร็จสมบรูณ์";
         } else{
          echo "Error: " . $sql . "<br>" . $conn->error;
           }
