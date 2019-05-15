@@ -90,7 +90,7 @@
         <?php 
             //error_reporting(~E_NOTICE);
            
-            if(($_SESSION['ses_status']==0))
+            if(empty($_SESSION['ses_status']) || ($_SESSION['ses_status']==0))
             {
 				?>
 				<div id="form">
@@ -129,7 +129,8 @@
 				?>
 				<?php
                     error_reporting(~E_NOTICE);
-					$ses_email = $_SESSION['ses_email'];
+                    $ses_email = $_SESSION['ses_email'];
+                    $ses_password = $_SESSION['ses_password'];
 					$servername = "localhost";
 					$username = "root";
 					$password = "";
@@ -140,9 +141,12 @@
 					if (!$conn) {
 						die("Connection failed: " . mysqli_connect_error());
 					}
-					$sql = "SELECT * FROM admin WHERE admin_email ='$ses_email' admin_password = '$password' ";
-					$p=mysqli_query($conn,$sql);
-					$data = mysqli_fetch_array($p);
+                    $sql = "SELECT * FROM admin WHERE admin_email ='$ses_email', admin_password = '$ses_password' ";
+                    //error_reporting(~E_NOTICE);
+                    $login=mysqli_query($conn,$sql);
+                    if($login){
+                        $data = mysqli_fetch_array($login);
+                    }
 				?>
 				
 

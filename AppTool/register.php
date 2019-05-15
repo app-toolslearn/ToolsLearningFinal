@@ -81,16 +81,13 @@
 <?php session_start(); 
         
     if ( isset($_POST['send'] )  )
-    echo "<script>alert('กรอก email เเละ รหัสผ่าน ');</script>";
-{ ?>
+      echo "<script>alert('กรอก email เเละ รหัสผ่าน ');</script>";
 
-
-
+    { ?>
+ 
 <?php } ?>
 
     <div>
-  
-    
             <div id="block">
                 <img class="pic" src="pics/icon-tools.png" />
             </div>

@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
    if(in_array($fileActualExt,$allowed)){
     if($fileError === 0){
         if($fileSize < 10000000){
-            $fileNameNew = uniqid('',true).".".$fileActualExt;
+            $fileNameNew = $fileExt[0].uniqid('',true).".".$fileActualExt; //
             $fileDestination = 'uploadcourse/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
             echo "success";
@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
       echo "เชื่อมเเล้ว";
      }
 
-       $sql = "INSERT INTO course(course_name)  VALUES ('$fileName')";
+       $sql = "INSERT INTO course(course_name)  VALUES ('$fileNameNew')";
        if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
         } else{

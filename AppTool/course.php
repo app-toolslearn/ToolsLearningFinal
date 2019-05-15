@@ -87,17 +87,11 @@
         margin: 5px;
         margin-right: 0px !important;
         display: inline;
-        /*  margin: auto auto;
- display: block; */
-        /* vertical-align: middle; */
-        /* margin-bottom: 0px; */
+     
     }
     </style>
-
 </head>
-
 <body>
-
 <div class="cardout">
     <div class="card">
         <div class="text">บทเรียน</div>
@@ -130,7 +124,5 @@
         </form>
     </div>
 </div>
-
 </body>
-
 </html>

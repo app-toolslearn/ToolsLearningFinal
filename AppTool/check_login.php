@@ -33,7 +33,7 @@ session_start();
 		else {
 			$row=mysqli_fetch_array($p);
 			$_SESSION['ses_userid'] = session_id();
-			$_SESSION['ses_Tel'] = $Tel;
+			//$_SESSION['ses_Tel'] = $Tel;
 			$_SESSION['ses_status']=0;
 			$_SESSION['ses_adminid']=$row['admin_password'];
 			echo "<meta http-equiv='refresh' content='0;URL=check_login2.php' />";

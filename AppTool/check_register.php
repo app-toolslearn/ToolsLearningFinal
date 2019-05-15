@@ -76,9 +76,20 @@
 <?php
    if(!isset($_POST['send']))
    {
+     
     ?>
-	
+	  
     <?php }
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+       if($email == "" or $password=="")
+       {
+        echo "<script>alert('โปรดกรอก อีเมล เเละรหัสผ่านของคุณ');</script>";
+        ?>
+		<meta http-equiv='refresh' content='2;URL=register.php'>
+		<?php
+       }
+
 else 
 {  
       $email = $_POST['email'];
@@ -108,8 +119,7 @@ else
                $result = mysqli_query($link,$sql2);
                if($result)
                {
-                echo "<script>alert('สมัครเรียบร้อยเเล้ว โปรดเข้าสู่ระบบ');</script>";
-               
+                echo "<script>alert('สมัครเรียบร้อยเเล้ว โปรดเข้าสู่ระบบ');</script>";    
                }
                else {
                 echo "<script>alert('เกิดข้อผิดพลาด');</script>";
