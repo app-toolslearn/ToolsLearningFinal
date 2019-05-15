@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
             $fileDestination = 'uploadcourse/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
             echo "success";
-            header("Location:index_lesson.php");
+            header("Location:action_img.php?id=$les_id");
           
         }else {
             echo "Your file is too big!";
