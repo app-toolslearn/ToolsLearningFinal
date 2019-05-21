@@ -30,14 +30,13 @@
 <?php ?>
 
 <body>
-    
- <?php include 'header.php';?>
+    <?php include 'header.php';?>
     <div class="cardout">
         <div class="container" style="width:900px;">
-            <h3 align="center">เพิ่มโจทย์แบบฝึกหัด</h3>
+            <h3 align="center">เพิ่มโจทย์ข้อสอบ</h3>
             <br />
             <div align="right">
-                <a href="upload_exercise.php?les_id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success">เพิ่ม</a>
+                <a href="upload_test.php?test_id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success">เพิ่ม</a>
             </div>
             <br />
             <div id="image_data">
@@ -70,13 +69,13 @@ $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
 mysqli_set_charset($connect, "utf8");
 
 if (!empty($_GET['id'])) {
-    $les_id = $_GET['id'];
-    $query = "SELECT * FROM test_choice WHERE lesson_id = $les_id";
+    $test_id = $_GET['id'];
+    $query = "SELECT * FROM test_choice WHERE test_id = $test_id";
     $result = mysqli_query($connect, $query);
     $output = '
    <table class="table table-bordered table-striped">  
     <tr>
-     <th width="10%">แบบฝึกหัดข้อที่</th>
+     <th width="10%">ข้อที่</th>
      <th width="30%">โจทย์</th>
      <th width="30%">ตัวเลือก</th>
      <th width="30%">คำตอบ</th>
@@ -92,27 +91,16 @@ if (!empty($_GET['id'])) {
     while ($row = mysqli_fetch_array($result)) {
         $item++;
 
-        
-        if($row["test_type"] == "e"){
-            $level = 'ง่าย';
-        };
-        if($row["test_type"] == "m"){
-            $level = 'ปานกลาง';
-        };
-        if($row["test_type"] == "h"){
-            $level = 'ยาก';
-        };
-
         $output .= '
 
     <tr>
     <td>' . $item . '
     </td>
-     <td><img style="width:100px;height:100px" src="uploadExercise/'.$row["test_c_img_name"].'"></td>
+     <td><img style="width:100px;height:100px" src="uploadTest/'.$row["test_c_img_name"].'"></td>
      <td>1. '.$row["test_c_A"].'<br>2. '.$row["test_c_B"].'<br>3. '.$row["test_c_C"].'<br>4. '.$row["test_c_D"].'</td>
      <td>ข้อ '.$row["test_c_ans"].'</td>
      <td>
-     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_exercise.php?id=' . $row["test_c_id"] . '"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
+     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_test.php?id=' . $row["test_c_id"] . '"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
      </td>
     </tr>
    ';

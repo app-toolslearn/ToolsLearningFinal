@@ -60,6 +60,7 @@
 </head>
 
 <body>
+<?php include 'header.php';?>
     <div id="img_container">
         <img src="pics/icon-tools.png" />
     </div>

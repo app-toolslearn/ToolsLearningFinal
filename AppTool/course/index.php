@@ -7,6 +7,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
  </head>  
  <body>  
+ <?php include 'header.php';?>
  <style type="text/css">
     @font-face {
         font-family: 'mitr-regular-webfont';

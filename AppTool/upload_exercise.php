@@ -94,6 +94,8 @@
     </style>
 </head>
 <body>
+    
+ <?php include 'header.php';?>
 <div class="cardout">
     <div class="card">
         <div class="text">คำถาม - คำตอบ</div>

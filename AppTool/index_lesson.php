@@ -7,6 +7,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
  </head>  
  <body>  
+     
+ <?php include 'header.php';?>
  <style type="text/css">
     @font-face {
         font-family: 'mitr-regular-webfont';
@@ -52,7 +54,7 @@
     <button type="button" name="addExam" id="addExam" class="btn btn-success">เพิ่ม</button>
    </div>
    <br />
-   <div id="image_data_Exam">
+   <div id="test_data">
 
    </div>
   </div>
@@ -96,14 +98,18 @@
     <h4 class="modal-title">เพิ่มชุดข้อสอบ</h4>
    </div>
    <div class="modal-body">
-    <form id="image_form" method="post" >
+    <form id="test_form" method="post" >
         <div class="form-group">
             <label for="name">ชือชุดข้อสอบ</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="test_name" name="test_name">
         </div>
         <div class="form-group">
             <label for="name">เลขที่</label>
             <input type="number" class="form-control" id="number" name="number">
+        </div>
+        <div class="form-group">
+            <label for="name">ระดับความยาก (e, m, h)</label>
+            <input type="text" class="form-control" id="level" name="level">
         </div>
         <input type="submit" name="insert_Exam" id="insert_Exam" value="Insert_Exam" class="btn btn-info" />
     </form>
@@ -118,6 +124,7 @@
 $(document).ready(function(){
  
  fetch_data();
+ fetch_test_data();
 
  function fetch_data()
  {
@@ -130,6 +137,21 @@ $(document).ready(function(){
    success:function(data)
    {
     $('#image_data').html(data);
+   }
+  })
+ }
+
+ function fetch_test_data()
+ {
+  var action = "fetch";
+  var id = <?php echo $_GET['id'] ?>;
+  $.ajax({
+   url:"action_test.php",
+   method:"POST",
+   data:{id:id,action:action},
+   success:function(data)
+   {
+    $('#test_data').html(data);
    }
   })
  }
@@ -164,21 +186,22 @@ $(document).ready(function(){
     });
  });
  
- $('#image_form_2').submit(function(event){
+ $('#test_form').submit(function(event){
   event.preventDefault();
   var action = "insert";
   var course_id = <?php echo $_GET['id'] ?>;
-  var les_name = $('#name').val();
-  var les_no = $('#number').val();
+  var test_name = $('#test_name').val();
+  var test_no = $('#number').val();
+  var level = $('#level').val();
     $.ajax({
-     url:"action_lesson.php",
+     url:"action_test.php",
      method:"POST",
-     data:{les_name:les_name,course_id:course_id,les_no:les_no, action:action},
+     data:{course_id:course_id,test_name:test_name,test_no:test_no,level:level, action:action},
      success:function(data)
      {
       alert(data);
-      fetch_data();
-      $('#imageModal_2').modal('hide');
+      fetch_test_data();
+      $('#test_form').modal('hide');
      }
     });
  });

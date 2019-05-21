@@ -71,7 +71,7 @@
                 <li><a class="navbar-brand" href="#">ToolsLearning</a></li>
                 <li ><a href="header.php?page=home">หน้าหลัก </a> </li>
                 <li><a href="course">จัดการวิชาเรียน</a></li>
-                <li><a href="header.php?page=ask-question">ถาม-ตอบ</a></li>
+                <li><a href="ask-question.php">ถาม-ตอบ</a></li>
             </ul>
             <div class="logout">
                 <ul class="nav navbar-nav navbar-right">
@@ -80,14 +80,6 @@
             </div>
         </div>
     </nav>
-    <div id="page-wrapper">
-        <?php
-        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-        include($page.'.php');
-        ?>
-
-
-    </div>
 
 
 

@@ -4,7 +4,7 @@ if (isset($_POST['submit'])) {
     $file = $_FILES['file'];
     //print_r($file);
     //$test_id = $_POST['test_id'];
-    $les_id = $_POST['les_id'];
+    $test_id = $_POST['test_id'];
     $choiceA = $_POST['choiceA'];
     $choiceB = $_POST['choiceB'];
     $choiceC = $_POST['choiceC'];
@@ -24,10 +24,10 @@ if (isset($_POST['submit'])) {
         if ($fileError === 0) {
             if ($fileSize < 10000000) {
                 $fileNameNew = $fileExt[0] . uniqid('', true) . "." . $fileActualExt; //
-                $fileDestination = 'uploadExercise/' . $fileNameNew;
+                $fileDestination = 'uploadTest/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 echo "success";
-                header("Location:action_exercise.php?id=$les_id");
+                header("Location:action_test_qa.php?id=$test_id");
             } else {
                 echo "Your file is too big!";
             }
@@ -42,9 +42,9 @@ if (isset($_POST['submit'])) {
         echo "เชื่อมเเล้ว";
     }
 
-    $fileUrl = "http://localhost/AppTool/uploadExercise/". $fileNameNew;
+    $fileUrl = "http://localhost/AppTool/uploadTest/". $fileNameNew;
 
-    $sql = "INSERT INTO test_choice(test_id, lesson_id, test_c_img_url, test_c_A, test_c_B, test_c_C, test_c_D, test_c_ans, test_c_score,test_c_img_name)  VALUES ('0','$les_id','$fileUrl','$choiceA','$choiceB','$choiceC','$choiceD','$ans','0','$fileNameNew')";
+    $sql = "INSERT INTO test_choice(test_id, lesson_id, test_c_img_url, test_c_A, test_c_B, test_c_C, test_c_D, test_c_ans, test_c_score,test_c_img_name)  VALUES ('$test_id','0','$fileUrl','$choiceA','$choiceB','$choiceC','$choiceD','$ans','0','$fileNameNew')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {

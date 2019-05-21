@@ -1,12 +1,12 @@
 <?php 
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
  if(!empty($_GET['id'])){
     $id = $_GET['id'];
     $sql = "SELECT * FROM test_choice WHERE test_c_id = $id";
     $result = mysqli_query($connect, $sql);
     $row = mysqli_fetch_assoc($result);
     if(!empty($row)){
-        $flgDelete = unlink('uploadExercise/'.$row['test_c_img_url']);
+        $flgDelete = unlink('uploadExercise/'.$row['test_c_img_name']);
     }
     $sql = "DELETE FROM test_choice WHERE test_c_id = $id";
     if (mysqli_query($connect, $sql)) {

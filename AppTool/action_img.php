@@ -30,6 +30,8 @@
 <?php ?> 
 
  <body>  
+     
+ <?php include 'header.php';?>
  <div  class="cardout">
   <div class="container" style="width:900px;">  
    <h3 align="center">เพิ่มเนื้อหา</h3>  
@@ -63,13 +65,13 @@
 <?php
 //action.php
  
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
 
  if(!empty($_GET['id']))
  {
    $les_id = $_GET['id'];
-  $query = "SELECT * FROM imglesson WHERE les_id = $les_id";
+  $query = "SELECT * FROM lesson_content WHERE lesson_id = $les_id";
   $result = mysqli_query($connect, $query);
   $output = '
    <table class="table table-bordered table-striped">  
@@ -89,7 +91,7 @@
     <tr>
     <td>'.$row["les_id"].'
     </td>
-     <td><img style="width:100px;height:100px" src="uploadcourse/'.$row["name"].'"></td>
+     <td><img style="width:100px;height:100px" src="uploadcourse/'.$row["image_url"].'"></td>
      <td>
      <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_img.php?id='.$row["id"].'"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
      </td>

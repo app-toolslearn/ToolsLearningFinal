@@ -2,7 +2,7 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {
@@ -28,8 +28,10 @@ if(isset($_POST["action"]))
      </td>
      
      <td>
+     
+     <a type="button" class="btn btn-info bt-xs" href="action_img.php?id='.$row["les_id"].'">เพิ่มเนื้อหา</a>
+     <a type="button" class="btn btn-info bt-xs" href="action_exercise.php?id='.$row["les_id"].'">เพิ่มแบบฝึกหัด</a>
      <button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["les_id"].'">ลบ</button>
-     <a type="button" name="delete" class="btn btn-info bt-xs" href="action_img.php?id='.$row["les_id"].'">เพิ่มรูป</a>
      </td>
     </tr>
    ';

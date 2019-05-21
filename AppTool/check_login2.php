@@ -15,7 +15,7 @@ if($ses_email ==" "){
 else {
 	$_SESSION['ses_status']=1;
 ?>
-	<meta http-equiv='refresh' content='0;URL=header.php'>
+	<meta http-equiv='refresh' content='0;URL=home.php'>
 <?php
 }
 ?>

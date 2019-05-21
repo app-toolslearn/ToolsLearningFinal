@@ -33,12 +33,12 @@ if(isset($_POST['submit']))
    } else {
     echo "You cannot uploadfile this type!!";
    }
-   $conn = new mysqli("localhost", "root", "root", "app_toolslearning");
+   $conn = new mysqli("localhost", "root", "P@ssw0rd", "app_toolslearning");
    if($conn) {
       echo "เชื่อมเเล้ว";
      }
 
-       $sql = "INSERT INTO imglesson(les_id,name)  VALUES ('$les_id','$fileNameNew')";
+       $sql = "INSERT INTO lesson_content(lesson_id,image_url)  VALUES ('$les_id','$fileNameNew')";
        if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
         } else{
@@ -49,7 +49,3 @@ $conn->close();
 
    
 }
-
-
-
-?> 

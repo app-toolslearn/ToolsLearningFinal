@@ -9,21 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+   
     <style type="text/css">
-    @font-face {
-        font-family: 'mitr-regular-webfont';
-        src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-    }
+   @import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
 
     body {
-        font-family: 'mitr-regular-webfont' !important;
-         background: url(img/bg.png); */
-        background: #fefefe;
-        background-size: cover;
+        font-family: 'PT Sans', sans-serif;
+        font-family: 'Kanit', sans-serif;
     }
 
     nav li {
@@ -33,19 +25,18 @@
         position: relative;
     }
 
-    .logout {
+    /* .logout {
         margin-right: 50px;
-    }
+    } */
 
-    #img_container img {
+    /* #img_container img {
 
         height: 20%;
         width: 20%;
         margin-left: 40%;
         margin-top: 5%;
-    }
+    } */
     .cardout{
-        
         padding-top:1px;
         background: #f7f7f7;
         margin-left: 20px;
@@ -76,7 +67,6 @@
     }
 
     .upload {
-        
         margin-top: 30px;
         margin-left: 50px;
         border-style: ridge;
@@ -89,26 +79,30 @@
         margin: 5px;
         margin-right: 0px !important;
         display: inline;
-     
+        /*  margin: auto auto;
+ display: block; */
+        /* vertical-align: middle; */
+        /* margin-bottom: 0px; */
     }
     </style>
 </head>
+
 <body>
     
- <?php include 'header.php';?>
 <div class="cardout">
     <div class="card">
-        <div class="text">เนื้อหา</div>
+        <div class="text">ข้อสอบ</div>
     </div>
     <div class="upload">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-           เลือกรูปภาพที่ต้องการอัพโหลด
+    <form action="upload_test.php" method="post" enctype="multipart/form-data">
+           Select image to upload:
             <input type="file" name="file" id="fileToUpload">
-            <input type="hidden" name="les_id" id="les_id" value="<?php  if(!empty($_GET['id'])) echo $_GET['id']; ?>">
             <input type="submit" value="Upload Image" name="submit">
         </form>
     </div>
 </div>
 
+
 </body>
+
 </html>

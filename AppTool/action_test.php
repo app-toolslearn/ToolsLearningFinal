@@ -2,34 +2,47 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {
   $id = $_POST['id'];
-  $query = "SELECT * FROM lesson WHERE course_id = $id ORDER BY les_no";
+  $query = "SELECT * FROM test WHERE course_id = $id ";
   $result = mysqli_query($connect, $query);
 
   $output = '
    <table class="table table-bordered table-striped">  
     <tr>
-     <th width="10%">บท</th>
-     <th width="30%">ชื่อบท</th>
+     <th width="10%">ชุดข้อสอบที่</th>
+     <th width="30%">ชื่อข้อสอบ</th>
+     <th width="20%">ระดับ</th>
      <th width="20%">จัดการ</th>
     </tr>
   ';
+  $item = 0;
+  $level = '';
   while($row = mysqli_fetch_array($result))
   {
+    $item++;
+    if($row["test_type"] == "e"){
+      $level = 'ง่าย';
+  };
+  if($row["test_type"] == "m"){
+      $level = 'ปานกลาง';
+  };
+  if($row["test_type"] == "h"){
+      $level = 'ยาก';
+  };
    $output .= '
 
     <tr>
-     <td>'.$row["les_no"].'</td>
-     <td>'.$row["les_name"].'
-     </td>
+    <td>' . $item . '</td>
+     <td>'.$row["test_name"].'</td>
+     <td>'.$level.'</td>
      
      <td>
-     <button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["les_id"].'">ลบ</button>
-     <a type="button" name="delete" class="btn btn-info bt-xs" href="action_img.php?id='.$row["les_id"].'">เพิ่มรูป</a>
+     <a type="button" name="delete" class="btn btn-info bt-xs" href="action_test_qa.php?id='.$row["test_id"].'">จัดการคำถาม - คำตอบ</a>
+     <button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["test_id"].'">ลบ</button>
      </td>
     </tr>
    ';
@@ -41,10 +54,11 @@ if(isset($_POST["action"]))
  if($_POST["action"] == "insert")
  {
   $course_id = $_POST['course_id'];
-  $les_no = $_POST['les_no'];
-  $les_name = $_POST['les_name'];
+  $test_name = $_POST['test_name'];
+  $test_no = $_POST['test_no'];
+  $level = $_POST['level'];
 
-  $query = "INSERT INTO lesson(course_id,les_no,les_name) VALUES ('$course_id','$les_no','$les_name')";
+  $query = "INSERT INTO test(test_name,les_id,test_type,course_id) VALUES ('$test_name','0','$level','$course_id')";
   if(mysqli_query($connect, $query))
   {
    echo 'เพิ่มบทเรียนเสร็จสมบรูณ์';

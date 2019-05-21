@@ -132,6 +132,7 @@
 
 <body>
 
+<?php include 'header.php';?>
 
 
     <table class="table">
