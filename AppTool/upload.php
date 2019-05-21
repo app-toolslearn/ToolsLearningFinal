@@ -25,24 +25,24 @@ if(isset($_POST['submit']))
             header("Location:action_img.php?id=$les_id");
           
         }else {
-            echo "Your file is too big!";
+            echo "ขนดไฟล์ของคุณใหญ่เกินไป!";
         }
     }else {
-        echo "Ther was an error uploading your file!";
+        echo "เกิดข้อผืดพลาดในการอัพโหลดไฟล์!";
     }
    } else {
-    echo "You cannot uploadfile this type!!";
+    echo "คุณไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้!!";
    }
-   $conn = new mysqli("localhost", "root", "P@ssw0rd", "app_toolslearning");
+   $conn = new mysqli("localhost", "root", "root", "app_toolslearning");
    if($conn) {
       echo "เชื่อมเเล้ว";
      }
 
        $sql = "INSERT INTO lesson_content(lesson_id,image_url)  VALUES ('$les_id','$fileNameNew')";
        if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "ข้อมูลภูกเพิ่มเสร็จสมบูรณ์";
         } else{
-           echo "Error: " . $sql . "<br>" . $conn->error;
+           echo "เกิดข้อผิดพลาด : " . $sql . "<br>" . $conn->error;
           }
 
 $conn->close();

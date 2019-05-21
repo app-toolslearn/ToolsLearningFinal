@@ -144,13 +144,13 @@
         <tr>
             <td>mo_9170@hotmail.com</td>
             <td>
-                <button id="myBtn">Reply</button>
+                <button id="myBtn">ตอบกลับ</button>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h3>ข้อความ</h3>
                         <textarea rows="10" cols="78">Some text in the Modal..</textarea>  
-                        <button type="submit" class="reply">SEND</button>
+                        <button type="submit" class="reply">ส่ง</button>
                     </div>
                 </div>
                 <script>

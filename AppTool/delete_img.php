@@ -1,5 +1,5 @@
 <?php 
- $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
  if(!empty($_GET['id'])){
     $id = $_GET['id'];
     $sql = "SELECT * FROM imglesson WHERE id = $id";

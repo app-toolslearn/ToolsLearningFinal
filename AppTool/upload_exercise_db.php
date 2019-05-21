@@ -26,18 +26,18 @@ if (isset($_POST['submit'])) {
                 $fileNameNew = $fileExt[0] . uniqid('', true) . "." . $fileActualExt; //
                 $fileDestination = 'uploadExercise/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                echo "success";
+                echo "เสร็จสิ้น";
                 header("Location:action_exercise.php?id=$les_id");
             } else {
-                echo "Your file is too big!";
+                echo "ขนาดไฟล์ของคุณใหญ่เกินไป";
             }
         } else {
-            echo "Ther was an error uploading your file!";
+            echo "เกิดข้อผิดพลาดในการอัพโหลดไฟล์!";
         }
     } else {
-        echo "You cannot uploadfile this type!!";
+        echo "Yคุณไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้!!";
     }
-    $conn = new mysqli("localhost", "root", "P@ssw0rd", "app_toolslearning");
+    $conn = new mysqli("localhost", "root", "root", "app_toolslearning");
     if ($conn) {
         echo "เชื่อมเเล้ว";
     }
@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 
     $sql = "INSERT INTO test_choice(test_id, lesson_id, test_c_img_url, test_c_A, test_c_B, test_c_C, test_c_D, test_c_ans, test_c_score,test_c_img_name)  VALUES ('0','$les_id','$fileUrl','$choiceA','$choiceB','$choiceC','$choiceD','$ans','0','$fileNameNew')";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "ข้อมูลได้ถูกสร้างขึ้นเสร็จสมบูรณ์";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

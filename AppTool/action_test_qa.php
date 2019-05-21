@@ -13,26 +13,29 @@
         src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
         font-weight: normal;
         font-style: normal;
-
-        .cardout {
-            padding-top: 1px;
-            background: #f7f7f7;
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-top: 20px;
-            height: auto;
-            width: auto;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-
-        }
+       
+    }
+    .cardout{
+        padding-top:1px;
+        background: #f7f7f7;
+        margin-left: 20px;
+        margin-right:20px;
+        margin-top: 20px;
+        height: auto;
+        width: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
 </style>
 <?php ?>
 
 <body>
+
+
     <?php include 'header.php';?>
     <div class="cardout">
         <div class="container" style="width:900px;">
+        
             <h3 align="center">เพิ่มโจทย์ข้อสอบ</h3>
             <br />
             <div align="right">
@@ -53,19 +56,20 @@
                         ต้องการลบรูปภาพนี้ใช่หรือไม่
                     </div>
                     <div class="modal-footer">
-                        <a href="" type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                        <a class="btn btn-danger btn-ok">Delete</a>
+                        <a href="" type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</a>
+                        <a class="btn btn-danger btn-ok">ลบ</a>
                     </div>
                 </div>
             </div>
         </div>
+    
 </body>
 
 </html>
 <?php
 //action.php
 
-$connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
+$connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
 mysqli_set_charset($connect, "utf8");
 
 if (!empty($_GET['id'])) {

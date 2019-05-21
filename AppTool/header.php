@@ -72,9 +72,13 @@
                 <li ><a href="header.php?page=home">หน้าหลัก </a> </li>
                 <li><a href="course">จัดการวิชาเรียน</a></li>
                 <li><a href="ask-question.php">ถาม-ตอบ</a></li>
+                <!-- <li><a><input type="button" value="Back" class="btn btn-warning" onClick="history.go(-1);"></a></li>
+                <li><a><input type="button" value="Next" class="btn btn-info" onClick="history.go(1);"></a></li> -->
             </ul>
             <div class="logout">
                 <ul class="nav navbar-nav navbar-right">
+                <li><a><input type="button" value="ย้อนกลับ" class="btn btn-warning" onClick="history.go(-1);"></a></li>
+                <li><a><input type="button" value="ไปข้างหน้า" class="btn btn-info" onClick="history.go(1);"></a></li>
                     <li><a href="header.php?page=logout"><span class="glyphicon glyphicon-log-in"></span> ออกจากระบบ</a></li>
                 </ul>
             </div>

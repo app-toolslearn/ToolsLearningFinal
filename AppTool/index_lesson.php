@@ -16,6 +16,15 @@
         font-weight: normal;
         font-style: normal;
     }
+    .card {
+        background: #1294ff;
+        margin-left: 50px;
+        margin-top: 50px;
+        height: 30%;
+        width: 15%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        /* 5px rounded corners */
     }
 
     .cardout{
@@ -30,11 +39,15 @@
         border-radius: 10px;
        
     }
+    
     </style>
+
 <div class ="cardout">
   <br /><br />  
   <div class="container" style="width:900px;">  
+  <div calss="card">
    <h3 align="center">เพิ่มบทเรียน</h3>  
+   </div>
    <br />
    <div align="right">
     <button type="button" name="add" id="add" class="btn btn-success">เพิ่ม</button>
@@ -45,7 +58,7 @@
    </div>
   </div>  
 
-  <div class ="cardout">
+  <div class ="">
   <br /><br />  
   <div class="container" style="width:900px;">  
    <h3 align="center">เพิ่มชุดข้อสอบ</h3>  
@@ -80,7 +93,8 @@
             <label for="name">เลขบทเรียน</label>
             <input type="number" class="form-control" id="number" name="number">
         </div>
-        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+        <!-- <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" /> -->
+        <button type="submit" name="insert" id="insert" value="Insert" class="btn btn-info">เพิ่ม</button>
     </form>
    </div>
    <div class="modal-footer">
@@ -111,7 +125,8 @@
             <label for="name">ระดับความยาก (e, m, h)</label>
             <input type="text" class="form-control" id="level" name="level">
         </div>
-        <input type="submit" name="insert_Exam" id="insert_Exam" value="Insert_Exam" class="btn btn-info" />
+        <!-- <input type="submit" name="insert_Exam" id="insert_Exam" value="Insert_Exam" class="btn btn-info" /> -->
+        <button type="submit" name="insert_Exam" id="insert_Exam" value="insert_Exam" class="btn btn-info">เพิ่ม</button>
     </form>
    </div>
    <div class="modal-footer">

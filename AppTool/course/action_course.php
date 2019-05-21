@@ -2,7 +2,7 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {
@@ -40,7 +40,7 @@ if(isset($_POST["action"]))
   $query = "INSERT INTO course(course_name) VALUES ('$name')";
   if(mysqli_query($connect, $query))
   {
-   echo 'Course Inserted into Database';
+   echo 'เพิ่มวิชาเรียนเสร็จสมบูรณ์';
   }
  }
  if($_POST["action"] == "update")
@@ -49,7 +49,7 @@ if(isset($_POST["action"]))
   $query = "UPDATE message SET les_name = '$file' WHERE id = '".$_POST["les_name"]."'";
   if(mysqli_query($connect, $query))
   {
-   echo 'Image Updated into Database';
+   echo 'รัพโหลดูปภาพเสร็จสมบูรณ์';
   }
  }
  if($_POST["action"] == "delete")
@@ -65,7 +65,7 @@ if(isset($_POST["action"]))
     $query = "DELETE FROM course WHERE corse_id = '".$_POST["id"]."'";
     if(mysqli_query($connect, $query))
     {
-      echo 'Course Deleted from Database';
+      echo 'วิชาเรียนถูกลบเสร็จสมบูรณ์';
     }
   }
  }

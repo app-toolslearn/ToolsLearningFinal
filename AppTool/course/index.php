@@ -15,10 +15,10 @@
         font-weight: normal;
         font-style: normal;
     }
-    }
-    .bg {
+    
+    body {
         /* font-family: 'mitr-regular-webfont' !important; */
-        background: url(img/bg.png);
+        background-image: url("http://localhost:8888/ToolsLearningFinal/AppTool/img/bg.png");
         background-size: cover;
         font-family: 'PT Sans', sans-serif;
         font-family: 'Kanit', sans-serif;
@@ -35,7 +35,7 @@
         /* 5px rounded corners */
     }
     </style>
-<div class ="bg">
+
   <br /><br />  
   <div class = "card">
   <div class="container" style="width:900px;">  
@@ -58,12 +58,12 @@
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add Course</h4>
+    <h4 class="modal-title">เพิ่มวิชาเรียน</h4>
    </div>
    <div class="modal-body">
     <form id="image_form" method="post" >
         <div class="form-group">
-        <label for="name">Course Name</label>
+        <label for="name">ชื่อวิชาเรียน</label>
         <input type="text" class="form-control" id="name" name="name">
         </div>
         <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
@@ -74,7 +74,7 @@
    </div>
   </div>
  </div>
-</div>
+
  
 <script>  
 $(document).ready(function(){

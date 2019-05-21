@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
     <title>Toolslearning</title>
 
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <?php include 'header.php';?>
     <style type="text/css">
     @font-face {
         font-family: 'mitr-regular-webfont';
@@ -17,12 +17,11 @@
         font-weight: normal;
         font-style: normal;
     }
-    }
+    
 
     body {
+        background-image: url("http://localhost:8888/ToolsLearningFinal⁩/AppTool⁩/img/bg.png");
         font-family: 'mitr-regular-webfont' !important;
-        /* background: url(img/bg.png); */
-        background: #fefefe;
         background-size: cover;
     }
 
@@ -89,16 +88,18 @@
         display: inline;
      
     }
+     
     </style>
 </head>
 <body>
+
 <div class="cardout">
     <div class="card">
         <div class="text">บทเรียน</div>
     </div>
     <div class="upload">
         <form action="upload.php" method="post" enctype="multipart/form-data">
-           Select image to upload:
+        เลือกรูปที่ต้องการอัพโหลด:
             <input type="file" name="file" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>
@@ -112,17 +113,17 @@
     <div class="upload">
         <form action="myform.cgi">
             <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
+            <label for="fileupload"> เลือกไฟล์ที่ต้องการอัพโหลด</label>
             <input type="submit" value="submit">
         </form>
     </div>
     <div class="upload">
         <form action="myform.cgi">
             <input type="file" name="fileupload" value="fileupload" id="fileupload">
-            <label for="fileupload"> Select a file to upload</label>
+            <label for="fileupload"> เลือกไฟล์ที่ต้องการอัพโหลด</label>
             <input type="submit" value="submit">
         </form>
     </div>
 </div>
 </body>
-</html>
+</html> -->

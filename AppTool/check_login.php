@@ -13,7 +13,7 @@ session_start();
 		$password = $_POST['password'];
 		$servername = "localhost";
 		$username = "root";
-		$password = "P@ssw0rd";
+		$password = "root";
 		$dbname = "app_toolslearning";
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
 		mysqli_set_charset($conn,'utf8');

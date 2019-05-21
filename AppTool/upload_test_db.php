@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
     } else {
         echo "You cannot uploadfile this type!!";
     }
-    $conn = new mysqli("localhost", "root", "P@ssw0rd", "app_toolslearning");
+    $conn = new mysqli("localhost", "root", "root", "app_toolslearning");
     if ($conn) {
         echo "เชื่อมเเล้ว";
     }

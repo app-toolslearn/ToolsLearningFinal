@@ -54,8 +54,8 @@
                         ต้องการลบรูปภาพนี้ใช่หรือไม่
                     </div>
                     <div class="modal-footer">
-                        <a href="" type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                        <a class="btn btn-danger btn-ok">Delete</a>
+                        <a href="" type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</a>
+                        <a class="btn btn-danger btn-ok">ลบ</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
 <?php
 //action.php
 
-$connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
+$connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
 mysqli_set_charset($connect, "utf8");
 
 if (!empty($_GET['id'])) {

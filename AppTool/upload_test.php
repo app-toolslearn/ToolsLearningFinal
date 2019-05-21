@@ -62,7 +62,7 @@
         margin-left: 50px;
         margin-top: 50px;
         height: 30%;
-        width: 15%;
+        width: 20%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         /* 5px rounded corners */
@@ -94,9 +94,8 @@
     </style>
 </head>
 <body>
+<?php include 'header.php';?>
 <div class="cardout">
-    
- <?php include 'header.php';?>
     <div class="card">
         <div class="text">คำถาม - คำตอบ</div>
     </div>
