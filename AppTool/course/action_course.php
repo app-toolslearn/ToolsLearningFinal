@@ -2,7 +2,7 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "", "app_toolslearning");
+ $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {

@@ -43,6 +43,21 @@
    </div>
   </div>  
 
+  <div class ="cardout">
+  <br /><br />  
+  <div class="container" style="width:900px;">  
+   <h3 align="center">เพิ่มชุดข้อสอบ</h3>  
+   <br />
+   <div align="right">
+    <button type="button" name="addExam" id="addExam" class="btn btn-success">เพิ่ม</button>
+   </div>
+   <br />
+   <div id="image_data_Exam">
+
+   </div>
+  </div>
+
+
  </body>  
 </html>
 
@@ -73,6 +88,32 @@
  </div>
 </div>
 
+<div id="imageModal_2" class="modal fade" role="dialog">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">เพิ่มชุดข้อสอบ</h4>
+   </div>
+   <div class="modal-body">
+    <form id="image_form" method="post" >
+        <div class="form-group">
+            <label for="name">ชือชุดข้อสอบ</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="name">เลขที่</label>
+            <input type="number" class="form-control" id="number" name="number">
+        </div>
+        <input type="submit" name="insert_Exam" id="insert_Exam" value="Insert_Exam" class="btn btn-info" />
+    </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+   </div>
+  </div>
+ </div>
+</div>
 <script>  
 $(document).ready(function(){
  
@@ -97,6 +138,13 @@ $(document).ready(function(){
   $('#action').val('insert');
   $('#insert').val("Insert");
  });
+
+ $('#addExam').click(function(){
+  $('#imageModal_2').modal('show');
+  $('#action').val('insert_Exam');
+  $('#insert_Exam').val('Insert_Exam');
+ });
+
  $('#image_form').submit(function(event){
   event.preventDefault();
   var action = "insert";
@@ -112,6 +160,25 @@ $(document).ready(function(){
       alert(data);
       fetch_data();
       $('#imageModal').modal('hide');
+     }
+    });
+ });
+ 
+ $('#image_form_2').submit(function(event){
+  event.preventDefault();
+  var action = "insert";
+  var course_id = <?php echo $_GET['id'] ?>;
+  var les_name = $('#name').val();
+  var les_no = $('#number').val();
+    $.ajax({
+     url:"action_lesson.php",
+     method:"POST",
+     data:{les_name:les_name,course_id:course_id,les_no:les_no, action:action},
+     success:function(data)
+     {
+      alert(data);
+      fetch_data();
+      $('#imageModal_2').modal('hide');
      }
     });
  });

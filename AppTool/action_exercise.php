@@ -64,7 +64,7 @@
 <?php
 //action.php
 
-$connect = mysqli_connect("localhost", "root", "P@ssw0rd", "app_toolslearning");
+$connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
 mysqli_set_charset($connect, "utf8");
 
 if (!empty($_GET['id'])) {

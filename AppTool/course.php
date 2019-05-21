@@ -17,11 +17,11 @@
         font-weight: normal;
         font-style: normal;
     }
-    }
+    
 
     body {
         font-family: 'mitr-regular-webfont' !important;
-        /* background: url(img/bg.png); */
+        background: url(img/bg.png);
         background: #fefefe;
         background-size: cover;
     }
