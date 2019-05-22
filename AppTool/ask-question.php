@@ -127,6 +127,17 @@
         /* vertical-align: middle; */
         /* margin-bottom: 0px; */
     }
+    .cardout{
+        padding-top:1px;
+        background: #f7f7f7;
+        margin-left: 20px;
+        margin-right:20px;
+        margin-top: 20px;
+        height: auto;
+        width: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
     </style>
 </head>
 
@@ -134,7 +145,7 @@
 
 <?php include 'header.php';?>
 
-
+<div class = "cardout">
     <table class="table">
         <tr>
             <th>อีเมล์</th>
@@ -149,7 +160,7 @@
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h3>ข้อความ</h3>
-                        <textarea rows="10" cols="78">Some text in the Modal..</textarea>  
+                        <textarea rows="10" cols="78">-ข้อความ.......</textarea>  
                         <button type="submit" class="reply">ส่ง</button>
                     </div>
                 </div>
@@ -189,7 +200,7 @@
         </tr>
         
     </table>
-
+    </div>
 
 </body>
 

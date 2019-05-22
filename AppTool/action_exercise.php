@@ -14,18 +14,18 @@
         font-weight: normal;
         font-style: normal;
 
-        .cardout {
-            padding-top: 1px;
-            background: #f7f7f7;
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-top: 20px;
-            height: auto;
-            width: auto;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-
-        }
+    }
+    .cardout{
+        padding-top:1px;
+        background: #f7f7f7;
+        margin-left: 20px;
+        margin-right:20px;
+        margin-top: 20px;
+        height: auto;
+        width: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
 </style>
 <?php ?>
 

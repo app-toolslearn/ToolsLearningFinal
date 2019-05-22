@@ -12,7 +12,8 @@
         src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
         font-weight: normal;
         font-style: normal;
- 
+       
+    }
     .cardout{
         padding-top:1px;
         background: #f7f7f7;
@@ -23,7 +24,6 @@
         width: auto;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         border-radius: 10px;
-       
     }
 
     </style>

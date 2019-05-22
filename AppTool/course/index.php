@@ -66,6 +66,7 @@
         <input type="text" class="form-control" id="name" name="name">
         </div>
         <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+        
     </form>
    </div>
    <div class="modal-footer">
@@ -124,7 +125,7 @@ $(document).ready(function(){
  $(document).on('click', '.delete', function(){
   var id = $(this).attr("id");
   var action = "delete";
-  if(confirm("Are you sure you want to remove this image from database?"))
+  if(confirm("คุณแน่ใจมั้ยที่ต้องการจะลบรูป?"))
   {
    $.ajax({
     url:"action_course.php",
