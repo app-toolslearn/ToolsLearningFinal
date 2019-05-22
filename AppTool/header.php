@@ -20,7 +20,7 @@
         font-family: 'Kanit', sans-serif;
     }
     nav li {
-        display: inline-block;
+        display: inline-block; 
         margin-left: 10px;
         /* padding-top: 20px; */
         position: relative;
@@ -69,8 +69,8 @@
             <ul class="nav navbar-nav">
                 <li><img src="pics/icon-tools.png" /></li>
                 <li><a class="navbar-brand" href="#">ToolsLearning</a></li>
-                <li ><a href="header.php?page=home">หน้าหลัก </a> </li>
-                <li><a href="course">จัดการวิชาเรียน</a></li>
+                <li ><a href="home.php">หน้าหลัก </a> </li>
+                <li><a href="course.php">จัดการวิชาเรียน</a></li>
                 <li><a href="ask-question.php">ถาม-ตอบ</a></li>
                 <!-- <li><a><input type="button" value="Back" class="btn btn-warning" onClick="history.go(-1);"></a></li>
                 <li><a><input type="button" value="Next" class="btn btn-info" onClick="history.go(1);"></a></li> -->

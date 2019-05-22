@@ -33,7 +33,7 @@ if(isset($_POST['submit']))
    } else {
     echo "คุณไม่สามารถอัพโหลดไฟล์ประเภทนี้ได้!!";
    }
-   $conn = new mysqli("localhost", "root", "root", "app_toolslearning");
+   $conn = new mysqli("ssitconsultant.com", "ssit_demo_tools", "P@ssw0rd", "app_toolslearning");
    if($conn) {
       echo "เชื่อมเเล้ว";
      }

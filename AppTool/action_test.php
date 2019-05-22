@@ -2,7 +2,7 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("ssitconsultant.com", "ssit_demo_tools", "P@ssw0rd", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {
@@ -15,7 +15,6 @@ if(isset($_POST["action"]))
     <tr>
      <th width="10%">ชุดข้อสอบที่</th>
      <th width="30%">ชื่อข้อสอบ</th>
-     <th width="20%">ระดับ</th>
      <th width="20%">จัดการ</th>
     </tr>
   ';
@@ -38,7 +37,6 @@ if(isset($_POST["action"]))
     <tr>
     <td>' . $item . '</td>
      <td>'.$row["test_name"].'</td>
-     <td>'.$level.'</td>
      
      <td>
      <a type="button" name="delete" class="btn btn-info bt-xs" href="action_test_qa.php?id='.$row["test_id"].'">จัดการคำถาม - คำตอบ</a>

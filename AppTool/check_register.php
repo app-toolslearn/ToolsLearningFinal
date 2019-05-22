@@ -95,7 +95,7 @@ else
       $email = $_POST['email'];
       $password = $_POST['password'];
       
-      $link = mysqli_connect("localhost","root","root","app_toolslearning");
+      $link = mysqli_connect("ssitconsultant.com","ssit_demo_tools","P@ssw0rd","app_toolslearning");
       mysqli_set_charset($link,'utf8');
       $sql = "app_toolslearning";
   

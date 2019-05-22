@@ -2,7 +2,7 @@
 //action.php
 if(isset($_POST["action"]))
 {
- $connect = mysqli_connect("localhost", "root", "root", "app_toolslearning");
+ $connect = mysqli_connect("ssitconsultant.com", "ssit_demo_tools", "P@ssw0rd", "app_toolslearning");
  mysqli_set_charset($connect,"utf8");
  if($_POST["action"] == "fetch")
  {
@@ -24,7 +24,7 @@ if(isset($_POST["action"]))
      </td>
      <td>
      <button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["corse_id"].'">ลบ</button>
-     <a type="button" name="delete" class="btn btn-info bt-xs" href="../index_lesson.php?id='.$row["corse_id"].'">เพิ่มบทเรียน</a>
+     <a type="button" name="delete" class="btn btn-info bt-xs" href="index_lesson.php?id='.$row["corse_id"].'">เพิ่มบทเรียน</a>
      </td>
     </tr>
    ';
