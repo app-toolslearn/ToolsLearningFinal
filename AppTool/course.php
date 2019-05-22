@@ -115,6 +115,7 @@ $(document).ready(function(){
   event.preventDefault();
   var action = "insert";
   var course_name = $('#name').val();
+  if(course_name != ''){
     $.ajax({
      url:"action_course.php",
      method:"POST",
@@ -126,6 +127,10 @@ $(document).ready(function(){
       $('#imageModal').modal('hide');
      }
     });
+  }else{
+    alert("กรุณาใส่ข้อมูล")
+  };
+    
  });
  $(document).on('click', '.update', function(){
   $('#image_id').val($(this).attr("id"));

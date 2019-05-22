@@ -122,7 +122,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">เลขที่</label>
-                        <input type="number" class="form-control" id="number" name="number">
+                        <input type="number" class="form-control" id="test_number" name="test_number">
                     </div>
                     <!-- <input type="submit" name="insert_Exam" id="insert_Exam" value="Insert_Exam" class="btn btn-info" /> -->
                     <button type="submit" name="insert_Exam" id="insert_Exam" value="insert_Exam" class="btn btn-info">เพิ่ม</button>
@@ -189,7 +189,8 @@
             var course_id = <?php echo $_GET['id'] ?>;
             var les_name = $('#name').val();
             var les_no = $('#number').val();
-            $.ajax({
+            if(les_name != '' && les_no){
+                $.ajax({
                 url: "action_lesson.php",
                 method: "POST",
                 data: {
@@ -204,6 +205,10 @@
                     $('#imageModal').modal('hide');
                 }
             });
+            }else{
+                alert("กรุณาใส่ข้อมูลให้ครบถ้วน")
+            };
+            
         });
 
         $('#test_form').submit(function(event) {
@@ -211,9 +216,11 @@
             var action = "insert";
             var course_id = <?php echo $_GET['id'] ?>;
             var test_name = $('#test_name').val();
-            var test_no = $('#number').val();
+            var test_no = $('#test_number').val();
             var level = "0";
-            $.ajax({
+            console.log(test_name + test_no)
+            if(test_name != '' && test_no != ''){
+                $.ajax({
                 url: "action_test.php",
                 method: "POST",
                 data: {
@@ -229,6 +236,10 @@
                     $('#test_form').modal('hide');
                 }
             });
+            }else{
+                alert("กรุณาใส่ข้อมูลให้ครบถ้วน")
+            };
+            
         });
         $(document).on('click', '.update', function() {
             $('#image_id').val($(this).attr("id"));
