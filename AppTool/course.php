@@ -109,7 +109,7 @@ $(document).ready(function(){
  $('#add').click(function(){
   $('#imageModal').modal('show');
   $('#action').val('insert');
-  $('#insert').val("Insert");
+  $('#insert').val("เพิ่ม");
  });
  $('#image_form').submit(function(event){
   event.preventDefault();

@@ -65,7 +65,7 @@
         <label for="name">ชื่อวิชาเรียน</label>
         <input type="text" class="form-control" id="name" name="name">
         </div>
-        <input type="submit" name="เพิ่ม" id="insert" value="Insert" class="btn btn-info" />
+        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
       
     </form>
    </div>
