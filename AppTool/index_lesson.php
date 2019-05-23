@@ -233,7 +233,7 @@
                 success: function(data) {
                     alert(data);
                     fetch_test_data();
-                    $('#test_form').modal('hide');
+                    $('#imageModal_2').modal('hide');
                 }
             });
             }else{

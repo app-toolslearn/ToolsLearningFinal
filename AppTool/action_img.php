@@ -91,9 +91,9 @@
     <tr>
     <td>'.$row["les_id"].'
     </td>
-     <td><img style="width:100px;height:100px" src="uploadcourse/'.$row["image_url"].'"></td>
+     <td><img style="width:100px;height:100px" src="uploadcourse/'.$row["img_name"].'"></td>
      <td>
-     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_img.php?id='.$row["id"].'"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
+     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_img.php?id='.$row["content_id"].'"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
      </td>
     </tr>
    ';

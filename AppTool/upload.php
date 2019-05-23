@@ -38,7 +38,9 @@ if(isset($_POST['submit']))
       echo "เชื่อมเเล้ว";
      }
 
-       $sql = "INSERT INTO lesson_content(lesson_id,image_url)  VALUES ('$les_id','$fileNameNew')";
+     $fileUrl = "http://ssitconsultant.com/AppTool/uploadcourse/". $fileNameNew;
+
+       $sql = "INSERT INTO lesson_content(lesson_id,image_url,img_name)  VALUES ('$les_id','$fileUrl','$fileNameNew')";
        if ($conn->query($sql) === TRUE) {
         echo "ข้อมูลภูกเพิ่มเสร็จสมบูรณ์";
         } else{

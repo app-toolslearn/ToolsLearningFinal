@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         echo "เชื่อมเเล้ว";
     }
 
-    $fileUrl = "http://localhost/AppTool/uploadTest/". $fileNameNew;
+    $fileUrl = "http://ssitconsultant.com/AppTool/uploadTest/". $fileNameNew;
 
     $sql = "INSERT INTO test_choice(test_id, lesson_id, test_c_img_url, test_c_A, test_c_B, test_c_C, test_c_D, test_c_ans, test_c_score,test_c_img_name)  VALUES ('$test_id','0','$fileUrl','$choiceA','$choiceB','$choiceC','$choiceD','$ans','0','$fileNameNew')";
     if ($conn->query($sql) === TRUE) {
