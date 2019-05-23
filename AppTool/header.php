@@ -79,7 +79,7 @@
                 <ul class="nav navbar-nav navbar-right">
                 <li><a><input type="button" value="ย้อนกลับ" class="btn btn-warning" onClick="history.go(-1);"></a></li>
                 <li><a><input type="button" value="ไปข้างหน้า" class="btn btn-info" onClick="history.go(1);"></a></li>
-                    <li><a href="header.php?page=logout"><span class="glyphicon glyphicon-log-in"></span> ออกจากระบบ</a></li>
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> ออกจากระบบ</a></li>
                 </ul>
             </div>
         </div>

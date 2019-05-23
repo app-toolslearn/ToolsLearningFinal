@@ -58,7 +58,7 @@
 
     .pic {
         margin-top: 20%;
-        height: 25%;
+        height: 250px;
         margin: auto auto;
         /* display: block; */
     }

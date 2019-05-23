@@ -81,7 +81,7 @@ if(isset($_POST["action"]))
     echo "ไม่สามารถลบได้ กรุณาลบรูปภาพให้หมดก่อน";
     exit;
   }else{
-    $query = "DELETE FROM lesson WHERE les_id = '".$_POST["id"]."'";
+    $query = "DELETE FROM test WHERE test_id = '".$_POST["id"]."'";
     if(mysqli_query($connect, $query))
     {
       echo 'รูปภาพถูกลบเสร็จสิ้น';
