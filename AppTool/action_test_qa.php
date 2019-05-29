@@ -39,7 +39,8 @@
             <h3 align="center">เพิ่มโจทย์ข้อสอบ</h3>
             <br />
             <div align="right">
-                <a href="upload_test.php?test_id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success">เพิ่ม</a>
+                <a href="upload_exercise.php?test_id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success">เพิ่ม</a>
+                <input class="btn btn-warning" onclick="window.location.href='https://ssitconsultant.com/AppTool/index_lesson.php?id=1'" type="button" value="กลับไปหน้าชุดข้อสอบ" />
             </div>
             <br />
             <div id="image_data">
@@ -65,7 +66,7 @@
     
 </body>
 
-</html>"ssitconsultant.com"
+</html>
 <?php
 //action.php
 
@@ -79,11 +80,12 @@ if (!empty($_GET['id'])) {
     $output = '
    <table class="table table-bordered table-striped">  
     <tr>
-     <th width="10%">ข้อที่</th>
-     <th width="30%">โจทย์</th>
-     <th width="30%">ตัวเลือก</th>
-     <th width="30%">คำตอบ</th>
-     <th width="20%">จัดการ</th>
+    <th width="10%">แบบฝึกหัดข้อที่</th>
+    <th width="20%">โจทย์</th>
+    <th width="20%">ตัวเลือก</th>
+    <th width="20%">คำตอบ</th>
+    <th width="20%">ประเภท (1 = ปรนัย, 2 = อัตนัย, 3 = เขียนโค้ด)</th>
+    <th width="10%">จัดการ</th>
     </tr>
   ';
     if (empty($result)) {
@@ -95,16 +97,26 @@ if (!empty($_GET['id'])) {
     while ($row = mysqli_fetch_array($result)) {
         $item++;
 
+        
+        if($row["test_type"] == "1"){
+            $ans = 'ข้อ '.$row["test_c_ans"].'';
+        }else if($row["test_type"] == "2" || $row["test_type"] == "3"){
+            $ans = '<img style="width:100px;height:100px" src="uploadExercise/'.$row["test_c_ans_img_name"].'">';
+        }else{
+            $ans = '';
+        }
+
         $output .= '
 
     <tr>
     <td>' . $item . '
     </td>
-     <td><img style="width:100px;height:100px" src="uploadTest/'.$row["test_c_img_name"].'"></td>
+     <td><img style="width:100px;height:100px" src="uploadExercise/'.$row["test_c_img_name"].'"></td>
      <td>1. '.$row["test_c_A"].'<br>2. '.$row["test_c_B"].'<br>3. '.$row["test_c_C"].'<br>4. '.$row["test_c_D"].'</td>
-     <td>ข้อ '.$row["test_c_ans"].'</td>
+     <td>'.$ans.'</td>
+     <td>'.$row["test_type"].'</td>
      <td>
-     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_test.php?id=' . $row["test_c_id"] . '"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
+     <a type="button" name="delete" class="btn btn-danger bt-xs delete" data-href="delete_exercise.php?id=' . $row["test_c_id"] . '"  data-toggle="modal" data-target="#confirm-delete">ลบ</a>
      </td>
     </tr>
    ';

@@ -37,7 +37,9 @@
    <h3 align="center">เพิ่มเนื้อหา</h3>  
    <br />
    <div align="right">
-    <a href="upload_img.php?id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success"  >เพิ่ม</a>
+    <a href="upload_img.php?id=<?php echo $_GET['id'] ?>" type="button" name="add" id="add" class="btn btn-success" >เพิ่ม</a>
+    <input class="btn btn-warning" onclick="window.location.href='https://ssitconsultant.com/AppTool/index_lesson.php?id=1'" type="button" value="กลับไปหน้าบทเรียน" />
+
    </div>
    <br />
    <div id="image_data">
@@ -76,8 +78,8 @@
   $output = '
    <table class="table table-bordered table-striped">  
     <tr>
-     <th width="10%">บท</th>
-     <th width="30%">ชื่อบท</th>
+     <th width="10%">เลขที่</th>
+     <th width="30%">รูปภาพ</th>
      <th width="20%">จัดการ</th>
     </tr>
   ';

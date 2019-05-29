@@ -11,140 +11,173 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style type="text/css">
-    @font-face {
-        font-family: 'mitr-regular-webfont';
-        src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-    }
+        @font-face {
+            font-family: 'mitr-regular-webfont';
+            src: url('mitr-regular-webfont.eot?#iefix') format('embedded-opentype'), url('mitr-regular-webfont.woff') format('woff'), url('mitr-regular-webfont.ttf') format('truetype'), url('mitr-regular-webfont.svg#mitr-regular-webfontI') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        }
 
-    body {
-        font-family: 'mitr-regular-webfont' !important;
-         background: url(img/bg.png); */
-        background: #fefefe;
-        background-size: cover;
-    }
+        body {
+            font-family: 'mitr-regular-webfont' !important;
+            background: url(img/bg.png);
+            */ background: #fefefe;
+            background-size: cover;
+        }
 
-    nav li {
-        display: inline-block;
-        margin-left: 10px;
-        /* padding-top: 20px; */
-        position: relative;
-    }
+        nav li {
+            display: inline-block;
+            margin-left: 10px;
+            /* padding-top: 20px; */
+            position: relative;
+        }
 
-    .logout {
-        margin-right: 50px;
-    }
+        .logout {
+            margin-right: 50px;
+        }
 
-    #img_container img {
+        #img_container img {
 
-        height: 20%;
-        width: 20%;
-        margin-left: 40%;
-        margin-top: 5%;
-    }
-    .cardout{
-        
-        padding-top:1px;
-        background: #f7f7f7;
-        margin-left: 20px;
-        margin-right:20px;
-        margin-top: 20px;
-        height: auto;
-        width: auto;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-       
-    }
-    .card {
-        background: #1294ff;
-        margin-left: 50px;
-        margin-top: 50px;
-        height: 30%;
-        width: 25%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-        /* 5px rounded corners */
-    }
+            height: 20%;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 5%;
+        }
 
-    .text {
-        color: #ffffff;
-        font-size: 30px;
-        text-align: center;
+        .cardout {
 
-    }
+            padding-top: 1px;
+            background: #f7f7f7;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            height: auto;
+            width: auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
 
-    .upload {
-        
-        margin-top: 30px;
-        margin-left: 50px;
-        border-style: ridge;
-        width: 50%;
-    }
+        }
 
-    img {
-        height: 40px;
-        width: 40px;
-        margin: 5px;
-        margin-right: 0px !important;
-        display: inline;
-     
-    }
+        .card {
+            background: #1294ff;
+            margin-left: 50px;
+            margin-top: 50px;
+            height: 30%;
+            width: 25%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            /* 5px rounded corners */
+        }
+
+        .text {
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+
+        }
+
+        .upload {
+
+            margin-top: 30px;
+            margin-left: 50px;
+            border-style: ridge;
+            width: 50%;
+        }
+
+        img {
+            height: 40px;
+            width: 40px;
+            margin: 5px;
+            margin-right: 0px !important;
+            display: inline;
+
+        }
     </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["file"].value;
+            if (x == "") {
+                alert("รกรุณาใส่รูปภาพคำถาม");
+                return false;
+            }
+
+            var testType = document.forms["myForm"]["testType"].value;
+            if (testType == "") {
+                alert("กรุณาใส่ประเภทคำถาม");
+                return false;
+            }
+
+            var img_ans = document.forms["myForm"]["fileToUploadANS"].value;
+            if (img_ans == "" && testType == '2') {
+                alert("กรุณาใส่รูปภาพคำตอบ");
+                return false;
+            }
+
+        }
+    </script>
 </head>
+
 <body>
-    
- <?php include 'header.php';?>
-<div class="cardout">
-    <div class="card">
-        <div class="text">คำถาม - คำตอบ</div>
+
+    <?php include 'header.php'; ?>
+    <div class="cardout">
+        <div class="card">
+            <div class="text">คำถาม - คำตอบ</div>
+        </div>
+        <div class="upload">
+            <form name="myForm" action="upload_exercise_db.php" method="post" onsubmit="return validateForm()" enctype="multipart/form-data">
+                เลือกรูปภาพ คำถาม ที่ต้องการอัพโหลด
+                <input type="file" name="file" id="fileToUpload">
+                <input type="hidden" name="test_id" id="test_id" value="<?php if (!empty($_GET['test_id'])) echo $_GET['test_id']; ?>">
+                <input type="hidden" name="les_id" id="les_id" value="<?php if (!empty($_GET['les_id'])) echo $_GET['les_id']; ?>">
+
+                <div class="form-group">
+                    <label for="name">ประเภทคำถาม (1 ปรนัย, 2 อัตนัย, 3 เขียนโค้ด</label>
+                    <input type="text" name="testType" id="testType">
+                </div>
+
+                เลือกรูปภาพ คำคอบ ที่ต้องการอัพโหลด
+                <input type="file" name="fileANS" id="fileToUploadANS">
+
+                <br>
+                <div class="form-group">
+                    <label for="name">ระบุคำตอบที่มีให้เลือก</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">ตัวเลือกที่ 1</label>
+                    <input type="text" name="choiceA" id="choiceA">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">ตัวเลือกที่ 2</label>
+                    <input type="text" name="choiceB" id="choiceB">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">ตัวเลือกที่ 3</label>
+                    <input type="text" name="choiceC" id="choiceC">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">ตัวเลือกที่ 4</label>
+                    <input type="text" name="choiceD" id="choiceD">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">คำตอบที่ถูกต้อง (1-4)</label>
+                    <input type="text" name="ans" id="ans">
+                </div>
+
+
+                <input type="submit" value="บันทึกคำถาม - คำตอบ" name="submit">
+                <br>
+
+
+            </form>
+        </div>
     </div>
-    <div class="upload">
-        <form action="upload_exercise_db.php" method="post" enctype="multipart/form-data">
-           เลือกรูปภาพ คำถาม ที่ต้องการอัพโหลด
-            <input type="file" name="file" id="fileToUpload">
-            <input type="hidden" name="test_id" id="test_id" value="<?php  if(!empty($_GET['test_id'])) echo $_GET['test_id']; ?>">
-            <input type="hidden" name="les_id" id="les_id" value="<?php  if(!empty($_GET['les_id'])) echo $_GET['les_id']; ?>">
-
-            <br>
-            <div class="form-group">
-            <label for="name">ระบุคำตอบที่มีให้เลือก</label>
-            </div>
-
-            <div class="form-group">
-            <label for="name">ตัวเลือกที่ 1</label>
-            <input type="text" name="choiceA" id="choiceA">
-            </div>
-
-            <div class="form-group">
-            <label for="name">ตัวเลือกที่ 2</label>
-            <input type="text" name="choiceB" id="choiceB">
-            </div>
-
-            <div class="form-group">
-            <label for="name">ตัวเลือกที่ 3</label>
-            <input type="text" name="choiceC" id="choiceC">
-            </div>
-
-            <div class="form-group">
-            <label for="name">ตัวเลือกที่ 4</label>
-            <input type="text" name="choiceD" id="choiceD">
-            </div>
-
-            <div class="form-group">
-            <label for="name">คำตอบที่ถูกต้อง (1-4)</label>
-            <input type="text" name="ans" id="ans">
-            </div>
-            
-
-            <input type="submit" value="บันทึกคำถาม - คำตอบ" name="submit">
-            <br>
-
-
-        </form>
-    </div>
-</div>
 
 </body>
 

@@ -67,6 +67,7 @@
                 <br />
                 <div align="right">
                     <button type="button" name="addExam" id="addExam" class="btn btn-success">เพิ่ม</button>
+                    
                 </div>
                 <br />
                 <div id="test_data">
@@ -263,6 +264,27 @@
 
                         alert(data);
                         fetch_data();
+                    }
+                })
+            } else {
+                return false;
+            }
+        });
+        $(document).on('click', '.delete-test', function() {
+            var id = $(this).attr("id");
+            var action = "delete";
+            if (confirm("คุณเเน่ใจมั้ยที่ต้องการจะลบข้อมูลนี้?")) {
+                $.ajax({
+                    url: "action_test.php",
+                    method: "POST",
+                    data: {
+                        id: id,
+                        action: action
+                    },
+                    success: function(data) {
+
+                        alert(data);
+                        fetch_test_data();
                     }
                 })
             } else {

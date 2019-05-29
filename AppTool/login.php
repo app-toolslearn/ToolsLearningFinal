@@ -58,8 +58,8 @@
 
     .pic {
         margin-top: 20%;
-        height: 250px;
         margin: auto auto;
+        height: 150px;
         /* display: block; */
     }
     #text {

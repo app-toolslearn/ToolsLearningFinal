@@ -14,7 +14,7 @@ session_start();
 		$servername = "ssitconsultant.com";
 		$username = "ssit_demo_tools";
 		$password = "P@ssw0rd";
-		$dbname = "app_toolslearning";
+		$dbname = "app_toolslearning"; 
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
 		mysqli_set_charset($conn,'utf8');
 		// Check connection

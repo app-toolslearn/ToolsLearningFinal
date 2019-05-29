@@ -39,8 +39,8 @@ if(isset($_POST["action"]))
      <td>'.$row["test_name"].'</td>
      
      <td>
-     <a type="button" name="delete" class="btn btn-info bt-xs" href="action_test_qa.php?id='.$row["test_id"].'">จัดการคำถาม - คำตอบ</a>
-     <button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["test_id"].'">ลบ</button>
+     <a type="button" name="delete" class="btn btn-info bt-xs" href="action_test_qa.php?id='.$row["test_id"].'">เพิ่มแบบทดสอบ</a>
+     <button type="button" name="delete_test" class="btn btn-danger bt-xs delete-test" id="'.$row["test_id"].'">ลบ</button>
      </td>
     </tr>
    ';
@@ -73,20 +73,11 @@ if(isset($_POST["action"]))
  }
  if($_POST["action"] == "delete")
  {
-  //echo $_POST['id'];
-  $query = "SELECT * FROM imglesson WHERE les_id = '".$_POST["id"]."'";
-  $result = mysqli_query($connect, $query);
-  $rowcount = mysqli_num_rows($result);
-  if($rowcount > 0 ){
-    echo "ไม่สามารถลบได้ กรุณาลบรูปภาพให้หมดก่อน";
-    exit;
-  }else{
     $query = "DELETE FROM test WHERE test_id = '".$_POST["id"]."'";
     if(mysqli_query($connect, $query))
     {
-      echo 'รูปภาพถูกลบเสร็จสิ้น';
+      echo 'ลบข้อสอบเสร็จสิ้น';
     }
-  }
  }
 }
 ?>
